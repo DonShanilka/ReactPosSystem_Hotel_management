@@ -56,7 +56,7 @@ export default function SearchAppBar() {
     <>
         <div>
         <Box sx={{ flexGrow: 5, position:"absolute",top:"3%",left:"16.5%",width: "50%"}}>
-      <AppBar sx={{backgroundColor:"#ffffff", color:"black",borderRadius:"50px"}} position="static">
+      <AppBar sx={{backgroundColor:"#ffffff", color:"black",borderRadius:"50px",height:"3%"}} position="static">
         <Toolbar >
           <Search sx={{position:"absolute", left:"1%"}}>
             <SearchIconWrapper>

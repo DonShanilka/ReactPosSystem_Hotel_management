@@ -90,12 +90,12 @@ export default function TableComponent() {
       <TableContainer sx={{ maxHeight: 440, width:"100%" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <TableRow sx={{position:"absolute",width:"100%"}}>
+            <TableRow>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ top: 57, minWidth: column.minWidth }}
+                  style={{ top: 0, minWidth: column.minWidth,backgroundColor:"#3377ff",color:"white" }}
                 >
                   {column.label}
                 </TableCell>
