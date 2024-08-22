@@ -90,7 +90,7 @@ export default function TableComponent() {
       <TableContainer sx={{ maxHeight: 440, width:"100%" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <TableRow>
+            <TableRow sx={{position:"absolute",width:"100%"}}>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}

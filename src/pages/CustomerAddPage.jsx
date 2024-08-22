@@ -24,7 +24,7 @@ const CustomerAddPage = () => {
     <>
         <div className='customerPageMainDiv'>
             <SearchAppBar/>
-            <Button variant="contained" color="success" sx={{position:"absolute", left:"20%", top:"20%"}}>Success</Button>
+            <Button variant="contained" color="success" sx={{position:"absolute", right:"2%", top:"20%"}}>Add Customer</Button>
             <Table/>
         </div>
     </>
