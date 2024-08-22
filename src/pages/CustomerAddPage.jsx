@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './CustomerPage.css'
 import SearchAppBar from '../components/SerchBar';
+import Table from '../components/TableComponent';
 
 
 const CustomerAddPage = () => {
@@ -21,6 +22,7 @@ const CustomerAddPage = () => {
     <>
         <div className='customerPageMainDiv'>
             <SearchAppBar/>
+            <Table/>
         </div>
     </>
   );

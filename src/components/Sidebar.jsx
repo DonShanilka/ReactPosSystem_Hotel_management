@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <Drawer
       variant="permanent"
-      sx={{ width: 240, flexShrink: 0, '& .MuiDrawer-paper': { width: 240, boxSizing: 'border-box' } }}
+      sx={{ width: 240, flexShrink: 0, '& .MuiDrawer-paper': { width: 240, boxSizing: 'border-box',backgroundColor:"white",color:"black" } }}
     >
       <List>
         <ListItem button component={Link} to="/">
