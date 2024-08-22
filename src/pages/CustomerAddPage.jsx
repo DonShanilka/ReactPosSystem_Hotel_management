@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './'
+import './CustomerPage.css'
+
 
 const CustomerAddPage = () => {
   const [customer, setCustomer] = useState({ name: '', email: '' });
@@ -17,7 +18,9 @@ const CustomerAddPage = () => {
 
   return (
     <>
-
+        <div className='customerPageMainDiv'>
+            <serchBarComponent/>
+        </div>
     </>
   );
 };
