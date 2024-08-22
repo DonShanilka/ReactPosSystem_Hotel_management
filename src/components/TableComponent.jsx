@@ -33,15 +33,15 @@ const columns = [
     format: (value) => value.toFixed(2),
   },
   {
-    id: 'email',
-    label: 'Email',
+    id: 'status',
+    label: 'Status',
     minWidth: 100,
     align: 'right',
     format: (value) => value.toFixed(2),
   },
   {
-    id: 'status',
-    label: 'Status',
+    id: 'action',
+    label: 'Action',
     minWidth: 100,
     align: 'right',
     format: (value) => value.toFixed(2),
@@ -85,15 +85,11 @@ export default function TableComponent() {
   };
 
   return (
+    <>
     <Paper sx={{ width: '82%', position:"absolute", bottom:"5%"}}>
       <TableContainer sx={{ maxHeight: 440, width:"100%" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <TableRow>
-              <TableCell align="center" colSpan={5}>
-                Customer Details
-              </TableCell>
-            </TableRow>
             <TableRow>
               {columns.map((column) => (
                 <TableCell
@@ -138,5 +134,6 @@ export default function TableComponent() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
+    </>
   );
 }
