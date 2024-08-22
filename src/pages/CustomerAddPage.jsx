@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './CustomerPage.css'
+import SearchAppBar from '../components/SerchBar';
 
 
 const CustomerAddPage = () => {
@@ -19,7 +20,7 @@ const CustomerAddPage = () => {
   return (
     <>
         <div className='customerPageMainDiv'>
-            <serchBarComponent/>
+            <SearchAppBar/>
         </div>
     </>
   );
