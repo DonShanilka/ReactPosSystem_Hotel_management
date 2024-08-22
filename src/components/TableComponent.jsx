@@ -9,26 +9,40 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 const columns = [
-  { id: 'id', label: 'ID', minWidth: 80 },
-  { id: 'name', label: 'Name', minWidth: 100 },
+  { id: 'id', label: 'ID', minWidth: 60 },
+  { id: 'name', label: 'Name', minWidth: 80 },
   {
     id: 'address',
     label: 'Address',
-    minWidth: 170,
+    minWidth: 100,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
     id: 'country',
     label: 'Country',
-    minWidth: 170,
+    minWidth: 100,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
     id: 'email',
     label: 'Email',
-    minWidth: 170,
+    minWidth: 100,
+    align: 'right',
+    format: (value) => value.toFixed(2),
+  },
+  {
+    id: 'email',
+    label: 'Email',
+    minWidth: 100,
+    align: 'right',
+    format: (value) => value.toFixed(2),
+  },
+  {
+    id: 'status',
+    label: 'Status',
+    minWidth: 100,
     align: 'right',
     format: (value) => value.toFixed(2),
   },
@@ -71,7 +85,7 @@ export default function TableComponent() {
   };
 
   return (
-    <Paper sx={{ width: '133%' }}>
+    <Paper sx={{ width: '82%', position:"absolute", bottom:"5%"}}>
       <TableContainer sx={{ maxHeight: 440, width:"100%" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
