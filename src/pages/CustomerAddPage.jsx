@@ -33,7 +33,14 @@ const CustomerAddPage = () => {
             <Button variant="contained" color="success" sx={{position:"absolute", right:"2%", top:"20%"}} onClick={() => setVisible(true)}>+ Add Customer</Button>
             <Table/>
 
-            <Model isOpen={visible}>
+            <Model isOpen={visible} style={{
+              overlay:{
+                background:"#d9d9d9",
+                position:"absolute",
+                width:"85%",
+                left:"15%"
+              }
+            }}>
               <div>
                 <TextField id="outlined-basic" label="Outlined" variant="outlined" />
                 <TextField id="outlined-basic" label="Outlined" variant="outlined" />
