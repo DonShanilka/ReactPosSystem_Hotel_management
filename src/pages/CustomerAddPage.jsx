@@ -52,15 +52,18 @@ const CustomerAddPage = () => {
               }
             }}>
               <div className='customer-Form-Div'>
-                <TextField id="outlined-basic" label="ID" variant="outlined" />
-                <TextField id="outlined-basic" label="Name" variant="outlined" />
-                <TextField id="outlined-basic" label="Address" variant="outlined" />
-                <TextField id="outlined-basic" label="Country" variant="outlined" />
-                <TextField id="outlined-basic" label="Email" variant="outlined" />
-                <TextField id="outlined-basic" label="Room No:" variant="outlined" />
-                <TextField id="outlined-basic" label="Booking Date" variant="outlined" />
-                <TextField id="outlined-basic" label="Out Date" variant="outlined" />
-                <TextField id="outlined-basic" label="Status" variant="outlined" />
+                <br />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="ID" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Name" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Address" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Country" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Email" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Room No:" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Booking Date" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Out Date" variant="outlined" />
+                <TextField sx={{margin: "20px", width:"90%"}} id="outlined-basic" label="Status" variant="outlined" />
+                <Button variant="contained" color="success">Save</Button>
+                <Button variant="outlined" color="error">Delete</Button>
               </div>
               <button style={{
                 position:"absolute", 
