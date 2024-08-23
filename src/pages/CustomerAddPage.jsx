@@ -10,6 +10,7 @@ import '../pages/CustomerPage.css'
 import Form from '../components/Forms';
 import TextField from '@mui/material/TextField';
 import { Margin, Padding } from '@mui/icons-material';
+import MenuItem from '@mui/material/MenuItem';
 
 const CustomerAddPage = () => {
   const [customer, setCustomer] = useState({ name: '', email: '' });
@@ -26,6 +27,25 @@ const CustomerAddPage = () => {
   };
 
   const [visible, setVisible] = useState(false)
+
+  const currencies = [
+    {
+      value: 'USD',
+      label: '$',
+    },
+    {
+      value: 'EUR',
+      label: '€',
+    },
+    {
+      value: 'BTC',
+      label: '฿',
+    },
+    {
+      value: 'JPY',
+      label: '¥',
+    },
+  ];
 
   return (
     <>
@@ -46,24 +66,37 @@ const CustomerAddPage = () => {
               },
               content:{
                 height:"80%",
-                width:"40%",
+                width:"38%",
                 top:"5%",
                 left:"29%"
               }
             }}>
               <div className='customer-Form-Div'>
-                <br />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="ID" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Name" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Address" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Country" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Email" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Room No:" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Booking Date" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Out Date" variant="outlined" />
-                <TextField sx={{margin: "20px", width:"90%"}} id="outlined-basic" label="Status" variant="outlined" />
-                <Button variant="contained" color="success">Save</Button>
-                <Button variant="outlined" color="error">Delete</Button>
+                <br /> <br />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="ID" variant="outlined" />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="Name" variant="outlined" />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="Address" variant="outlined" />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="Country" variant="outlined" />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="Email" variant="outlined" />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="Room No:" variant="outlined" />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="Booking Date" variant="outlined" />
+                <TextField sx={{margin: "10px"}} id="outlined-basic" label="Out Date" variant="outlined" />
+                <TextField sx={{margin: "10px", width:"91%"}}
+          id="outlined-select-currency"
+          select
+          label="Select"
+          defaultValue="EUR"
+          helperText="Please select your currency"
+        >
+          {currencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+                <br /><br /><br /><br />
+                <Button sx={{margin: "10px"}} variant="contained" color="success">Save</Button>
+                <Button variant="contained">Update</Button>
               </div>
               <button style={{
                 position:"absolute", 
