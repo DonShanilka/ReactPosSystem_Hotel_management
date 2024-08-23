@@ -46,6 +46,13 @@ const columns = [
     align: 'right',
     format: (value) => value.toFixed(2),
   },
+  {
+    id: 'roomno',
+    label: 'Room NO:',
+    minWidth: 100,
+    align: 'right',
+    format: (value) => value.toFixed(2),
+  },
 ];
 
 function createData(name, code, population, size) {
