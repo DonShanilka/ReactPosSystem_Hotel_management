@@ -1,4 +1,8 @@
 #model-div{
     z-index: 10;
-    background-color: rgba(172, 172, 172, 0.541);
+    background-color: rgba(0, 0, 0, 0.692);
+}
+
+.customer-Form-Div {
+    margin: 10px;
 }

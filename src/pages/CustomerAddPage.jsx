@@ -9,6 +9,7 @@ import zIndex from '@mui/material/styles/zIndex';
 import '../pages/CustomerPage.css'
 import Form from '../components/Forms';
 import TextField from '@mui/material/TextField';
+import { Margin, Padding } from '@mui/icons-material';
 
 const CustomerAddPage = () => {
   const [customer, setCustomer] = useState({ name: '', email: '' });
@@ -35,22 +36,22 @@ const CustomerAddPage = () => {
 
             <Model isOpen={visible} style={{
               overlay:{
-                background:  "rgba(172, 172, 172, 0.541)",
+                background:  "rgba(0, 0, 0, 0.692)",
                 position:"absolute",
                 width:"85%",
                 height:"100%",
                 left:"15%",
                 top:"0%",
-                zIndex:"5"
+                zIndex:"20"
               },
               content:{
-                height:"60%",
-                width:"94%",
-                top:"30%",
-                left:"1.5%"
+                height:"80%",
+                width:"40%",
+                top:"5%",
+                left:"29%"
               }
             }}>
-              <div>
+              <div className='customer-Form-Div'>
                 <TextField id="outlined-basic" label="ID" variant="outlined" />
                 <TextField id="outlined-basic" label="Name" variant="outlined" />
                 <TextField id="outlined-basic" label="Address" variant="outlined" />
@@ -58,14 +59,12 @@ const CustomerAddPage = () => {
                 <TextField id="outlined-basic" label="Email" variant="outlined" />
                 <TextField id="outlined-basic" label="Room No:" variant="outlined" />
                 <TextField id="outlined-basic" label="Booking Date" variant="outlined" />
-                <TextField id="outlined-basic" label="Hotel Date" variant="outlined" />
                 <TextField id="outlined-basic" label="Out Date" variant="outlined" />
                 <TextField id="outlined-basic" label="Status" variant="outlined" />
-                <TextField id="outlined-basic" label="Action" variant="outlined" />
               </div>
               <button style={{
                 position:"absolute", 
-                right:"2%", top:"3%", 
+                right:"1%", top:"2%", 
                 borderRadius:"50%",
                 backgroundColor:"white",
                 border:"none",
