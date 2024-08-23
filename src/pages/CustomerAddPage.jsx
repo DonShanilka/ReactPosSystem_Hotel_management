@@ -35,18 +35,41 @@ const CustomerAddPage = () => {
 
             <Model isOpen={visible} style={{
               overlay:{
-                background:"#d9d9d9",
+                background:  "rgba(172, 172, 172, 0.541)",
                 position:"absolute",
                 width:"85%",
-                left:"15%"
+                height:"100%",
+                left:"15%",
+                top:"0%",
+                zIndex:"5"
+              },
+              content:{
+                height:"60%",
+                width:"94%",
+                top:"30%",
+                left:"1.5%"
               }
             }}>
               <div>
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                <TextField id="outlined-basic" label="ID" variant="outlined" />
+                <TextField id="outlined-basic" label="Name" variant="outlined" />
+                <TextField id="outlined-basic" label="Address" variant="outlined" />
+                <TextField id="outlined-basic" label="Country" variant="outlined" />
+                <TextField id="outlined-basic" label="Email" variant="outlined" />
+                <TextField id="outlined-basic" label="Room No:" variant="outlined" />
+                <TextField id="outlined-basic" label="Booking Date" variant="outlined" />
+                <TextField id="outlined-basic" label="Hotel Date" variant="outlined" />
+                <TextField id="outlined-basic" label="Out Date" variant="outlined" />
+                <TextField id="outlined-basic" label="Status" variant="outlined" />
+                <TextField id="outlined-basic" label="Action" variant="outlined" />
               </div>
-              <button style={{position:"absolute", right:"5%"}} onClick={() => setVisible(false)}>Close model</button>
+              <button style={{
+                position:"absolute", 
+                right:"2%", top:"3%", 
+                borderRadius:"50%",
+                backgroundColor:"white",
+                border:"none",
+                color:"#ff1a1a"}} onClick={() => setVisible(false)}>X</button>
             </Model>
         
         </div>
