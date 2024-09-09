@@ -92,11 +92,6 @@ const rows = [
   createData('Ireland', 'IE', 4857000, 70273),
   createData('Mexico', 'MX', 126577691, 1972550),
   createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
 ];
 
 export default function TableComponent() {
@@ -114,8 +109,8 @@ export default function TableComponent() {
 
   return (
     <>
-    <Paper sx={{ width: '82%', position:"absolute", bottom:"5%"}}>
-      <TableContainer sx={{ maxHeight: 440, width:"100%" }}>
+    <Paper sx={{ width: '82%', height:'70%', position:"absolute", bottom:"5%"}}>
+      <TableContainer sx={{ maxHeight: 600, width:"100%" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
