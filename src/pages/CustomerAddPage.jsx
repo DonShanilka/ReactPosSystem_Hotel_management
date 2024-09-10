@@ -55,11 +55,12 @@ const CustomerAddPage = () => {
                 <br />
                 <TextField sx={{margin: "20px"}} id="outlined-basic" label="ID" variant="outlined" />
                 <TextField sx={{margin: "20px"}} id="outlined-basic" label="Name" variant="outlined" />
-                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Address" variant="outlined" />
+                <TextField sx={{margin: "20px", width:"91%"}} id="outlined-basic" label="Address" variant="outlined" />
                 <TextField sx={{margin: "20px"}} id="outlined-basic" label="Country" variant="outlined" />
                 <TextField sx={{margin: "20px"}} id="outlined-basic" label="Email" variant="outlined" />
                 <TextField sx={{margin: "20px"}} id="outlined-basic" label="Room No:" variant="outlined" />
                 <TextField sx={{margin: "20px"}} id="outlined-basic" label="Booking Date" variant="outlined" />
+                <TextField sx={{margin: "20px"}} id="outlined-basic" label="Hotale Date" variant="outlined" />
                 <TextField sx={{margin: "20px"}} id="outlined-basic" label="Out Date" variant="outlined" />
                 <TextField sx={{margin: "20px", width:"90%"}} id="outlined-basic" label="Status" variant="outlined" />
                 <Button sx={{margin: "20px"}} variant="contained" color="success">Save</Button>

@@ -109,7 +109,7 @@ export default function TableComponent() {
 
   return (
     <>
-    <Paper sx={{ width: '82%', height:'70%', position:"absolute", bottom:"5%"}}>
+    <Paper sx={{ width: '82%', height:'70%', position:"absolute", bottom:"5%", left:'16.7%'}}>
       <TableContainer sx={{ maxHeight: 600, width:"100%" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
