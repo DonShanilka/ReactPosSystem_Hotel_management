@@ -107,6 +107,8 @@ export default function TableComponent() {
     setPage(0);
   };
 
+  const URL = "http://localhost:"
+
   return (
     <>
     <Paper sx={{ width: '82%', height:'70%', position:"absolute", bottom:"5%", left:'16.7%'}}>

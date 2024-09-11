@@ -22,7 +22,7 @@
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-modal": "^3.16.1",
-    "react-router-dom": "^6.26.1",
+    "react-router-dom": "^6.26.2",
     "react-virtuoso": "^4.10.1",
     "styled-components": "^6.1.13"
   },
@@ -39,7 +39,7 @@
     "vite": "^5.4.1"
   },
   "peerDependencies": {
-  "react": "^17.0.0 || ^18.0.0",
-  "react-dom": "^17.0.0 || ^18.0.0"
-}
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  }
 }
