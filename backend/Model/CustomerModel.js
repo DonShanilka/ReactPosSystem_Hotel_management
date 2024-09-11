@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const customerSchema = new Schema({
+
+    cid:{
+        type:String,
+        require:true,
+    },
     name:{
         type:String, // dataType eka
         require:true, // input wala filwela thiyedha kiyala chek karanawa (validate eka)
@@ -22,7 +27,6 @@ const customerSchema = new Schema({
 
 
 // export karanwa (database ekata)
-module.exports = mongoose.model(
-    "CustomerModel",//file name
-    customerSchema //funtion name
-)
+const Customer = mongoose.model('Customer',customerSchema);
+
+module.exports = Customer;

@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-
-//Insert Model
-const CustomerModel = require("../Model/CustomerModel");
-// Insert Controller
 const CustomerController = require("../Controllers/CustomerControlle");
 
-router.get("/",CustomerController.getAllCustomer);
+router.get("/customers",CustomerController.getAllCustomer);
+router.post("/addcustomers",CustomerController.addCustomer);
+router.put("/updatecustomers",CustomerController.updateCustomer);
+router.delete("/deletecustomers",CustomerController.deleteCustomer);
+
 
 // export 
 module.exports = router;
