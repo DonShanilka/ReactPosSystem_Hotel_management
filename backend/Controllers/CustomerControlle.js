@@ -44,9 +44,9 @@ const updateCustomer = (req,res,next) => {
 }
 
 const deleteCustomer = (req,res,next) => {
-    const id = req.body.id;
+    const id = req.params.id;
     
-    Customer.deleteOne({id:id})
+    Customer.findByIdAndDelete(id)
             .then(deleted => {
                 res.json({deleted})
             }) 
