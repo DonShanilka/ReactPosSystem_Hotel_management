@@ -1,3 +1,4 @@
+const { set } = require("../App");
 const Customer = require("../Model/CustomerModel");
 
 
@@ -29,9 +30,11 @@ const addCustomer = (req,res,next) => {
 }
 
 const updateCustomer = (req,res,next) => {
-    const {cid,name} = req.body;
 
-    Customer.updateOne({cid:cid}, {set: {name: name}})
+    const id = req.params.id;
+    const {cid,name,age,address,email} = req.body;
+
+    Customer.findByIdAndUpdate(id ,{cid: cid,name: name,age:age,address:address,email:email})
             .then(update => {
                 res.json({update})
             })
@@ -52,8 +55,26 @@ const deleteCustomer = (req,res,next) => {
             })
 }
 
+const getById = async(req,res,next) => {
+    const id = req.params.id;
+
+    let cust;
+
+    try{
+        cust = await Customer.findById(id);
+    } catch(err) {
+        console.log(err);
+    }
+
+    if (!cust) {
+        return res.status(404).json({message:"no Customer"});
+    } else {
+        return res.status(200).json({cust});
+    }
+}
 
 exports.getAllCustomer = getAllCustomer;
 exports.addCustomer = addCustomer;
 exports.updateCustomer = updateCustomer;
 exports.deleteCustomer = deleteCustomer;
+exports.getById = getById;
