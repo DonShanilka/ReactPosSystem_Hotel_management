@@ -9,59 +9,69 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-function createData(cid, name, age, address, email) {
-  return { cid, name, age, address, email };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
 export default function TableComponent() {
   // ********************************************************
+
   const [customer, setCustomer] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5001/customers")
+      .get("http://Localhost:5001/api/customers")
       .then((customer) => setCustomer(customer.data))
       .catch((err) => console.log(err));
   }, []);
 
+  // Ensure customer is an array
+  const customerList = Array.isArray(customer) ? customer : [];
+
+  console.log(customer);
+
   return (
     <>
-      <TableContainer component={Paper} >
-        <Table sx={{position:"absolute" ,top:"30%",left:"17%" ,width:"80%"}} size="small" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
+    <TableContainer component={Paper}>
+      <Table
+        sx={{
+          position: "absolute",
+          top: "30%",
+          left: "17%",
+          width: "80%",
+          backgroundColor: "white",
+        }}
+        size="small"
+        aria-label="a dense table"
+      >
+        <TableHead>
+          <TableRow>
+            <TableCell align="right">ID</TableCell>
+            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Age</TableCell>
+            <TableCell align="right">Address</TableCell>
+            <TableCell align="right">Email</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {customer.length > 0 ? (
+            customer.map((customerItem) => (
+              <TableRow key={customerItem._id}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {customerItem.cid}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="right">{customerItem.name}</TableCell>
+                <TableCell align="right">{customerItem.age}</TableCell>
+                <TableCell align="right">{customerItem.address}</TableCell>
+                <TableCell align="right">{customerItem.email}</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={5} align="center">
+                No Data Available
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+      
+    </TableContainer>
     </>
   );
 }
