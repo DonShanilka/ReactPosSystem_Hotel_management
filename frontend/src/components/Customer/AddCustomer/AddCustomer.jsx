@@ -58,18 +58,24 @@ function AddCustomer() {
               id="outlined-basic"
               label="ID"
               variant="outlined"
+              name='cid'
+              value={inputsData.cid}
             />
             <TextField
               sx={{ margin: "20px" }}
               id="outlined-basic"
               label="Name"
               variant="outlined"
+              name='name'
+              value={inputsData.name}
             />
             <TextField
               sx={{ margin: "20px", width: "91%" }}
               id="outlined-basic"
               label="Address"
               variant="outlined"
+              name='address'
+              value={inputsData.address}
             />
             <TextField
               sx={{ margin: "20px" }}
@@ -82,6 +88,8 @@ function AddCustomer() {
               id="outlined-basic"
               label="Email"
               variant="outlined"
+              name='email'
+              value={inputsData.email}
             />
             <TextField
               sx={{ margin: "20px" }}
@@ -92,8 +100,10 @@ function AddCustomer() {
             <TextField
               sx={{ margin: "20px" }}
               id="outlined-basic"
-              label="Booking Date"
+              label="Age"
               variant="outlined"
+              name='age'
+              value={inputsData.age}
             />
             <TextField
               sx={{ margin: "20px" }}
