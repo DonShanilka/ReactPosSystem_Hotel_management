@@ -9,21 +9,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-export default function TableComponent() {
+export default function TableComponent(props) {
   // ********************************************************
-
-  const [customer, setCustomer] = useState([]);
-  useEffect(() => {
-    axios
-      .get("http://Localhost:5001/api/customers")
-      .then((customer) => setCustomer(customer.data))
-      .catch((err) => console.log(err));
-  }, []);
-
-  // Ensure customer is an array
-  const customerList = Array.isArray(customer) ? customer : [];
-
-  console.log(customer);
 
   return (
     <>
@@ -49,25 +36,14 @@ export default function TableComponent() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {customer.length > 0 ? (
-            customer.map((customerItem) => (
-              <TableRow key={customerItem._id}>
+              <TableRow>
                 <TableCell component="th" scope="row">
-                  {customerItem.cid}
                 </TableCell>
-                <TableCell align="right">{customerItem.name}</TableCell>
-                <TableCell align="right">{customerItem.age}</TableCell>
-                <TableCell align="right">{customerItem.address}</TableCell>
-                <TableCell align="right">{customerItem.email}</TableCell>
+                <TableCell align="right">{}</TableCell>
+                <TableCell align="right">{}</TableCell>
+                <TableCell align="right">{}</TableCell>
+                <TableCell align="right">{}</TableCell>
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={5} align="center">
-                No Data Available
-              </TableCell>
-            </TableRow>
-          )}
         </TableBody>
       </Table>
       
