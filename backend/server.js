@@ -8,8 +8,8 @@ const port = 5001;
 app.use(cors());
 app.use(express.json());
 
-const uri =
-  "mongodb+srv://shanilka100:ABqz8GyMZhI70BMz@shanilka.15lsu.mongodb.net/";
+const uri = 'mongodb://127.0.0.1:27017';
+  // "mongodb+srv://shanilka100:ABqz8GyMZhI70BMz@shanilka.15lsu.mongodb.net/";
 
 const connect = async () => {
   try {
