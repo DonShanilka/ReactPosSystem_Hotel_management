@@ -18,7 +18,7 @@ app.use(bodyParser.json);
 // const uri =
 //   "mongodb+srv://shanilka100:ABqz8GyMZhI70BMz@shanilka.15lsu.mongodb.net/";
 
-const url = 'mongodb://127.0.0.1:27017';
+const url = 'mongodb://127.0.0.1:27017/testHotel';
 const client = new MongoClient(url);
 
 const dbname ='testHotel';

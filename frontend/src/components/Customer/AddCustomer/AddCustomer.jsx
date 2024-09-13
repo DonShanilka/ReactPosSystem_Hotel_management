@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import { json, useNavigate } from "react-router";
 // import Model from "react-modal";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -8,61 +8,75 @@ import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
 import Modal from "react-modal";
+import TableComponent from "../../TableComponent";
 
 function AddCustomer() {
   const [visible, setVisible] = useState(false);
 
   const history = useNavigate();
-  
-  const [cid, setCid] = useState('');
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [address, setAddress] = useState('');
-  const [email, setEmail] = useState('');
 
+  const [cid, setCid] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+
+  // input feld eke type karana varayak pasa value eka change wela state ekata set wenawa
   const handleIdChange = (e) => {
     setCid(e.target.value);
-  }
+  };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
-  }
+  };
 
   const handleAgeChange = (e) => {
     setAge(e.target.value);
-  }
+  };
 
   const handleAddressChange = (e) => {
     setAddress(e.target.value);
-  }
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-  }
+  };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-  const formdata = {cid,name,age,address,email};
-  console.log("Customer Data" , formdata);
+    const formdata = { cid, name, age, address, email };
+    console.log("Customer Data", formdata);
 
-  fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      cid: cid,
-      name: name,
-      age:age,
-      address: address,
-      email: email
-    }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-};
- 
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      body: JSON.stringify({
+        cid: cid,
+        name: name,
+        age: age,
+        address: address,
+        email: email,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  };
+
+  // #####################################################################
+  //   LoadAll Data
+
+  const [customerData, setCustomerData] = useState([]);
+
+  const loadallData = () => {
+    fetch("http://localhost:5001")
+      .then((response) => response.json())
+      .then((json) => setCustomerData(json));
+      console.log(customerData);   
+  };
+
   return (
     <div>
       <Button
@@ -177,10 +191,17 @@ function AddCustomer() {
               <Button variant="outlined" startIcon={<DeleteIcon />}>
                 Delete
               </Button>
-              <Button variant="contained" endIcon={<SendIcon />}>
+              <Button
+                variant="contained"
+                endIcon={<SendIcon />}
+                onClick={loadallData}
+              >
                 Send
               </Button>
             </Stack>
+            {customerData.map((testHotel) => (
+              <TableComponent testHotel={testHotel} />
+            ))}
           </form>
         </div>
         <button
