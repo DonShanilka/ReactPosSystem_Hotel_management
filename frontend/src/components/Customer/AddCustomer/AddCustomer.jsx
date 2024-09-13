@@ -20,6 +20,20 @@ function AddCustomer() {
     email:"",
   });
 
+  const handleChange = (e) => {
+    setInputsData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+    }));
+  }
+
+  /// submit button
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputsData);
+    sendRequest().then(() => history('customers'))
+  }
+
   return (
     <div>
       <Button
