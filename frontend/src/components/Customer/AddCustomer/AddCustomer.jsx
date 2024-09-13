@@ -27,23 +27,23 @@ function AddCustomer() {
 
   // Handlers for the new fields
   const handleIdChange = (e) => {
-    setCountry(e.target.value);
+    setCid(e.target.value);
   };
 
   const handleNameChange = (e) => {
-    setCountry(e.target.value);
+    setName(e.target.value);
   };
 
   const handleAgeChange = (e) => {
-    setCountry(e.target.value);
+    setAge(e.target.value);
   };
 
   const handleAddressChange = (e) => {
-    setCountry(e.target.value);
+    setAddress(e.target.value);
   };
 
   const handleEmailChange = (e) => {
-    setCountry(e.target.value);
+    setEmail(e.target.value);
   };
 
   const handleCountryChange = (e) => {
@@ -82,7 +82,12 @@ function AddCustomer() {
       outDate,
       status,
     };
-    console.log(newCustomer);
+    
+    axios.post("http://Localhost:5001/customer", newCustomer).then(() => {
+      alert("Stuent Added")
+    }).catch((err) => {
+      alert(err)
+    })
   }
 
   // Load all data
@@ -216,7 +221,7 @@ function AddCustomer() {
               <Button
                 variant="contained"
                 endIcon={<SendIcon />}
-                onClick={loadAllData}
+                // onClick={loadAllData}
               >
                 Send
               </Button>

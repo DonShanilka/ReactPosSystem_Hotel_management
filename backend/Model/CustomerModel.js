@@ -25,6 +25,6 @@ const customerSchema = new Schema({
 });
 
 // export karanwa (database ekata)
-const Customer = mongoose.model("custome", customerSchema);
+const Customer = mongoose.model("Customer", customerSchema);
 
 module.exports = Customer;
