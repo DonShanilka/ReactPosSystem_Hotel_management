@@ -43,7 +43,7 @@ function AddCustomer() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    const formdata = {cid,name,age,address,email};
+  const formdata = {cid,name,age,address,email};
   console.log("Customer Data" , formdata);
 
   fetch('https://jsonplaceholder.typicode.com/posts', {
