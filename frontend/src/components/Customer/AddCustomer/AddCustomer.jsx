@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { json, useNavigate } from "react-router";
-// import Model from "react-modal";
+import { useNavigate } from "react-router";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -9,10 +8,10 @@ import Stack from "@mui/material/Stack";
 import axios from "axios";
 import Modal from "react-modal";
 import TableComponent from "../../TableComponent";
+import { Alert } from "@mui/material";
 
 function AddCustomer() {
   const [visible, setVisible] = useState(false);
-
   const history = useNavigate();
 
   const [cid, setCid] = useState("");
@@ -20,61 +19,79 @@ function AddCustomer() {
   const [age, setAge] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [roomNo, setRoomNo] = useState("");
+  const [hotelDate, setHotelDate] = useState("");
+  const [outDate, setOutDate] = useState("");
+  const [status, setStatus] = useState("");
 
-  // input feld eke type karana varayak pasa value eka change wela state ekata set wenawa
+  // Handlers for the new fields
   const handleIdChange = (e) => {
-    setCid(e.target.value);
+    setCountry(e.target.value);
   };
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setCountry(e.target.value);
   };
 
   const handleAgeChange = (e) => {
-    setAge(e.target.value);
+    setCountry(e.target.value);
   };
 
   const handleAddressChange = (e) => {
-    setAddress(e.target.value);
+    setCountry(e.target.value);
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setCountry(e.target.value);
   };
 
-  const handleOnSubmit = (e) => {
+  const handleCountryChange = (e) => {
+    setCountry(e.target.value);
+  };
+
+  const handleRoomNoChange = (e) => {
+    setRoomNo(e.target.value);
+  };
+
+  const handleHotelDateChange = (e) => {
+    setHotelDate(e.target.value);
+  };
+
+  const handleOutDateChange = (e) => {
+    setOutDate(e.target.value);
+  };
+
+  const handleStatusChange = (e) => {
+    setStatus(e.target.value);
+  };
+
+  // Save customer data
+  function saveCustomer(e) {
     e.preventDefault();
 
-    const formdata = { cid, name, age, address, email };
-    console.log("Customer Data", formdata);
+    const newCustomer = {
+      cid,
+      name,
+      age,
+      address,
+      email,
+      country,
+      roomNo,
+      hotelDate,
+      outDate,
+      status,
+    };
+    console.log(newCustomer);
+  }
 
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      body: JSON.stringify({
-        cid: cid,
-        name: name,
-        age: age,
-        address: address,
-        email: email,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-  };
-
-  // #####################################################################
-  //   LoadAll Data
-
+  // Load all data
   const [customerData, setCustomerData] = useState([]);
 
-  const loadallData = () => {
+  const loadAllData = () => {
     fetch("http://localhost:5001")
       .then((response) => response.json())
       .then((json) => setCustomerData(json));
-      console.log(customerData);   
   };
 
   return (
@@ -110,81 +127,86 @@ function AddCustomer() {
       >
         <div className="customer-Form-Div">
           <br />
-          <form onSubmit={handleOnSubmit}>
+          <form onSubmit={saveCustomer}>
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
+              id="customer-id"
               label="ID"
               variant="outlined"
-              name="cid"
               value={cid}
               onChange={handleIdChange}
             />
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
+              id="customer-name"
               label="Name"
               variant="outlined"
-              name="name"
               value={name}
               onChange={handleNameChange}
             />
             <TextField
               sx={{ margin: "20px", width: "91%" }}
-              id="outlined-basic"
+              id="customer-address"
               label="Address"
               variant="outlined"
-              name="address"
               value={address}
               onChange={handleAddressChange}
             />
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
+              id="customer-country"
               label="Country"
               variant="outlined"
+              value={country}
+              onChange={handleCountryChange}
             />
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
+              id="customer-email"
               label="Email"
               variant="outlined"
-              name="email"
               value={email}
               onChange={handleEmailChange}
             />
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
+              id="customer-roomno"
               label="Room No:"
               variant="outlined"
+              value={roomNo}
+              onChange={handleRoomNoChange}
             />
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
+              id="customer-age"
               label="Age"
               variant="outlined"
-              name="age"
               value={age}
               onChange={handleAgeChange}
             />
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
-              label="Hotale Date"
+              id="hotel-date"
+              label="Hotel Date"
               variant="outlined"
+              value={hotelDate}
+              onChange={handleHotelDateChange}
             />
             <TextField
               sx={{ margin: "20px" }}
-              id="outlined-basic"
+              id="out-date"
               label="Out Date"
               variant="outlined"
+              value={outDate}
+              onChange={handleOutDateChange}
             />
             <TextField
               sx={{ margin: "20px", width: "90%" }}
-              id="outlined-basic"
+              id="customer-status"
               label="Status"
               variant="outlined"
+              value={status}
+              onChange={handleStatusChange}
             />
 
             <Stack direction="row" spacing={1}>
@@ -194,13 +216,14 @@ function AddCustomer() {
               <Button
                 variant="contained"
                 endIcon={<SendIcon />}
-                onClick={loadallData}
+                onClick={loadAllData}
               >
                 Send
               </Button>
             </Stack>
+
             {customerData.map((testHotel) => (
-              <TableComponent testHotel={testHotel} />
+              <TableComponent key={testHotel.id} testHotel={testHotel} />
             ))}
           </form>
         </div>
