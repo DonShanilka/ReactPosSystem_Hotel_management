@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
+import axios from 'axios';
 
 function AddCustomer() {
 
@@ -32,6 +33,16 @@ function AddCustomer() {
     e.preventDefault();
     console.log(inputsData);
     sendRequest().then(() => history('customers'))
+  }
+
+  const sendRequest = async() => {
+    await axios.post("http://Localhost:5001/api/addcustomers",{
+      cid:String (inputsData.cid),
+      name:String (inputsData.name),
+      age:Number (inputsData.age),
+      address:String (inputsData.address),
+      email:String (inputsData.email),
+    }).then(res => res.data);
   }
 
   return (
