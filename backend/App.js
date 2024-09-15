@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const controller = require('./Controllers/CustomerControlle')
 const cors = require('cors');
-
+const server = require('./server')
 
 app.use(cors());
 
@@ -19,11 +19,21 @@ app.use(express.json());
 
 // funtion
 
-app.get('/customers',(req,res) => {
-    controller.getAllCustomer(req,res,next => {
-        res.send();
-    });
+// app.get('/customers',(req,res) => {
+//     controller.getAllCustomer(req,res,next => {
+//         res.send();
+//     });
+// });
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// New Get
+
+app.get('/customers', async(req,res) => {
+    const findresult =  await server.find({}).toArray();
+    res.send(findresult);
 });
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 app.get('/Onecustomers',(req,res) => {
     controller.getById(req,res,next => {

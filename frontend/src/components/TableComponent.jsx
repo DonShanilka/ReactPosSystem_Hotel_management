@@ -41,7 +41,7 @@ export default function TableComponent(props) {
               <TableRow>
                 <TableCell component="th" scope="row">
                 </TableCell>
-                <TableCell align="right">{props.test}</TableCell>
+                <TableCell align="right">{}</TableCell>
                 <TableCell align="right">{}</TableCell>
                 <TableCell align="right">{}</TableCell>
                 <TableCell align="right">{}</TableCell>
