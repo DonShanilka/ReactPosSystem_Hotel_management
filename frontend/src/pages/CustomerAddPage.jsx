@@ -22,8 +22,8 @@ const CustomerAddPage = () => {
   return (
     <>
       <div className="customerPageMainDiv">
-        {/* <Table /> */}
-        <LoadAllCustomer/>
+        <Table />
+        {/* <LoadAllCustomer/> */}
         <AddCustomer/>
       </div>
     </>

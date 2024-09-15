@@ -11,11 +11,18 @@ import Paper from "@mui/material/Paper";
 
 export default function TableComponent(props) {
   // ********************************************************
-  const [customerData, setCustomerData] = useState([]);
-  
+  const [data, setData] = useState([]);
+
+  const loadAllData = () => {
+    fetch('mongodb://127.0.0.1:27017')
+        .then((response) => response.json())
+        .then((json) => setData(json));
+  }
 
   return (
     <>
+    <button onClick={loadAllData()} style={{position:"absolute",left:"30%",top:"10%"}}>{console.log(data)} Load All Data</button>
+
     <TableContainer component={Paper}>
       <Table
         sx={{
@@ -41,10 +48,10 @@ export default function TableComponent(props) {
               <TableRow>
                 <TableCell component="th" scope="row">
                 </TableCell>
-                <TableCell align="right">{}</TableCell>
-                <TableCell align="right">{}</TableCell>
-                <TableCell align="right">{}</TableCell>
-                <TableCell align="right">{}</TableCell>
+                <TableCell align="right">{data.cid}</TableCell>
+                <TableCell align="right">{data.name}</TableCell>
+                <TableCell align="right">{data.age}</TableCell>
+                <TableCell align="right">{data.address}</TableCell>
               </TableRow>
         </TableBody>
       </Table>

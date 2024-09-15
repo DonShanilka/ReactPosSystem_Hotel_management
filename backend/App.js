@@ -28,7 +28,7 @@ app.use(express.json());
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // New Get
 
-app.get('/customers', async(req,res) => {
+app.get('/', async(req,res) => {
     const findresult =  await server.find({}).toArray();
     res.send(findresult);
 });

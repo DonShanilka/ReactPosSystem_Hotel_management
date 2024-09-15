@@ -14,10 +14,10 @@ function LoadAllCustomer() {
   return (
     <div style={{position:"absolute",left:"30%",top:"20%"}}>
       <h1>Load All Customer</h1>
-      <button onClick={loadAllData}>Load All Data</button>
-      {
-        // data.map((testHotel) => (<MyCart title="Card" testHotel={testHotel}/>))
-      }
+      <button onClick={loadAllData}>Load All Data {console.log(data)}</button>
+      {/* {
+        data.map((testHotel) => (<MyCart title="Card" testHotel={testHotel}/>))
+      } */}
     </div>
   )
 }
