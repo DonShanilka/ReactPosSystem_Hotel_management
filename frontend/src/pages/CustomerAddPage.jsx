@@ -3,6 +3,7 @@ import "./CustomerPage.css";
 import Table from "../components/TableComponent";
 import "../pages/CustomerPage.css";
 import AddCustomer from "../components/Customer/AddCustomer/AddCustomer";
+import LoadAllCustomer from "../components/Customer/LoadCustomer/LoadAllCustomer";
 
 
 const CustomerAddPage = () => {
@@ -21,7 +22,8 @@ const CustomerAddPage = () => {
   return (
     <>
       <div className="customerPageMainDiv">
-        <Table />
+        {/* <Table /> */}
+        <LoadAllCustomer/>
         <AddCustomer/>
       </div>
     </>
