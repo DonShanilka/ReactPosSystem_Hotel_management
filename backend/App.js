@@ -10,7 +10,7 @@ app.use(cors());
 
 app.use(
     express.urlencoded({
-        extended:true,
+        extended: true,
     })
 );
 
@@ -28,39 +28,38 @@ app.use(express.json());
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // New Get
 
-app.get('/', async(req,res) => {
-    const findresult =  await server.find({}).toArray();
+app.get('/', async (req, res) => {
+    const findresult = await server.find({}).toArray();
     res.send(findresult);
 });
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-app.get('/Onecustomers',(req,res) => {
-    controller.getById(req,res,next => {
+app.get('/Onecustomers', (req, res) => {
+    controller.getById(req, res, next => {
         res.send();
     });
 });
 
-app.post('/addcustomers',(req,res) => {
-    controller.addCustomer(req.body,(callback) => {
+app.post('/addcustomers', (req, res) => {
+    controller.addCustomer(req.body, (callback) => {
         res.send(callback);
     });
 });
 
 
-app.put('/updatecustomers',(req,res) => {
-    controller.updateCustomer(req.body,(callback) => {
+app.put('/updatecustomers', (req, res) => {
+    controller.updateCustomer(req.body, (callback) => {
         res.send(callback);
     });
 });
 
 
-app.delete('/deletecustomers',(req,res) => {
-    controller.deleteCustomer(req.body,(callback) => {
+app.delete('/deletecustomers', (req, res) => {
+    controller.deleteCustomer(req.body, (callback) => {
         res.send(callback);
     });
 });
-
 
 
 module.exports = app;

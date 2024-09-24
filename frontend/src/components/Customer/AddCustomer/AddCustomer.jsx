@@ -69,7 +69,7 @@ function AddCustomer() {
   // Save customer data
   function saveCustomer(e) {
     e.preventDefault();
-
+    console.log(cid + "" + name + "" + address + "" + age + "" + email)
     const newCustomer = {
       cid,
       name,
@@ -82,8 +82,10 @@ function AddCustomer() {
       outDate,
       status,
     };
-    
-    axios.post("http://Localhost:5001/customer", newCustomer).then(() => {
+
+    console.log(newCustomer);
+    axios.post("http://Localhost:5001/api/addcustomers", newCustomer).then((res) => {
+      console.log(res)
       alert("Stuent Added")
     }).catch((err) => {
       alert(err)
@@ -221,7 +223,8 @@ function AddCustomer() {
               <Button
                 variant="contained"
                 endIcon={<SendIcon />}
-                // onClick={loadAllData}
+                type="submit"
+              // onClick={loadAllData}
               >
                 Send
               </Button>
