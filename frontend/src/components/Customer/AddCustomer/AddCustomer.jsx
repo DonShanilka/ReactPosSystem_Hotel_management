@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -91,15 +91,6 @@ function AddCustomer() {
       alert(err)
     })
   }
-
-  // Load all data
-  const [customerData, setCustomerData] = useState([]);
-
-  const loadAllData = () => {
-    fetch("http://localhost:5001")
-      .then((response) => response.json())
-      .then((json) => setCustomerData(json));
-  };
 
   return (
     <div>
@@ -224,15 +215,12 @@ function AddCustomer() {
                 variant="contained"
                 endIcon={<SendIcon />}
                 type="submit"
-              // onClick={loadAllData}
+
               >
-                Send
+                Send {console.log()}
               </Button>
             </Stack>
 
-            {customerData.map((testHotel) => (
-              <TableComponent key={testHotel.id} testHotel={testHotel} />
-            ))}
           </form>
         </div>
         <button

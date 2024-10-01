@@ -4,6 +4,7 @@ import Table from "../components/TableComponent";
 import "../pages/CustomerPage.css";
 import AddCustomer from "../components/Customer/AddCustomer/AddCustomer";
 import LoadAllCustomer from "../components/Customer/LoadCustomer/LoadAllCustomer";
+import MyCart from "../components/Customer/LoadCustomer/MyCart";
 
 
 const CustomerAddPage = () => {
@@ -23,8 +24,7 @@ const CustomerAddPage = () => {
     <>
       <div className="customerPageMainDiv">
         <Table />
-        {/* <LoadAllCustomer/> */}
-        <AddCustomer/>
+        <AddCustomer />
       </div>
     </>
   );
