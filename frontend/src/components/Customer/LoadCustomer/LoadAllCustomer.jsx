@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import MyCart from './MyCart';
 
 function LoadAllCustomer() {
@@ -7,17 +7,17 @@ function LoadAllCustomer() {
 
   const loadAllData = () => {
     fetch('http://Localhost:5001/api/customers')
-        .then((response) => response.json())
-        .then((json) => setData(json));
+      .then((response) => response.json())
+      .then((json) => setData(json));
   }
 
   return (
-    <div style={{position:"absolute",left:"30%",top:"20%"}}>
+    <div style={{ position: "absolute", left: "30%", top: "20%" }}>
       <h1>Load All Customer</h1>
       <button onClick={loadAllData}>Load All Data {console.log(data)}</button>
-      {/* {
-        data.map((testHotel) => (<MyCart title="Card" testHotel={testHotel}/>))
-      } */}
+      {
+        data.map((testMongo) => (<TableComponen title="Card" testMongo={testMongo} />))
+      }
     </div>
   )
 }

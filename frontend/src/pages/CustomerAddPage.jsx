@@ -5,25 +5,16 @@ import "../pages/CustomerPage.css";
 import AddCustomer from "../components/Customer/AddCustomer/AddCustomer";
 import LoadAllCustomer from "../components/Customer/LoadCustomer/LoadAllCustomer";
 import MyCart from "../components/Customer/LoadCustomer/MyCart";
+import CustomerTable from "../components/Customer/TableComponent/CustomerTable";
 
 
 const CustomerAddPage = () => {
-
-  const [visible, setVisible] = useState(false);
-
-  // ###################################################################
-  const [customerData, setCustomerData] = useState([]);
-
-  const loadallCustomer = () => {
-    fetch("http://Localhost:3000")
-      .then((respons) => respons.json())
-      .then((json) => setCustomerData(json));
-  };
 
   return (
     <>
       <div className="customerPageMainDiv">
         <Table />
+        <CustomerTable />
         <AddCustomer />
       </div>
     </>
